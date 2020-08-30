@@ -1,0 +1,21 @@
+:root {
+--gridcol: 1;
+--gridrow: 1;
+}
+
+#buttoncontainer{
+    justify-content: center; 
+}
+#container{
+    display: grid;
+    grid-template-columns: repeat(var(--gridcol), 12px);
+    grid-template-rows: repeat(var(--gridrow), 12px); 
+    justify-content: center;
+    border: 5px solid black;
+    height: 400px;
+    width: 400px;
+}
+
+.gridobject{
+    border: 1px solid black;
+}
