@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>Etch-a-sketch project</title>
+<link rel="stylesheet" href="Etch-a-sketch.css">
+
+</head>
+    
+<body>
+<div id='button container'>
+<button onclick="addmoreSquares()">add more Squares</button>    
+</div>
+<div id='container'>
+    
+</div>
+ <script>
+const container = document.getElementById("container");
+     
+function createGrid(rows, cols) {
+  container.style.setProperty('--grid-rows', rows);
+  container.style.setProperty('--grid-cols', cols);
+  for (c = 0; c < (rows * cols); c++) {
+    let newDivs = document.createElement("div");
+    container.appendChild(newDivs).className = "grid-object";
+  };
+};
+
+createGrid(16, 16);
+
+function deleteGrid()
+    {
+var gridcells = document.querySelectorAll(".newDivs");
+    for(i = 0; i < gridcells.length; i++){
+gridcells[i].parentNode.removeChild(gridcells[i]);
+    }
+    }
+function addmoreSquares(){
+deleteGrid();
+var userInput = prompt('would you like to add more squares',16);
+createGrid(userInput, userInput);
+}''
+function resetGrid(){
+    
+}
+  
+    </script>
+    
+</body>
+
+
+</html>
