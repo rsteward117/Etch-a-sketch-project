@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="utf-8">
+<title>Etch-a-sketch project</title>
+<link rel="stylesheet" href="Etch-a-sketch.css">
+
+</head>
+    
+<body>
+<div id='button container'>
+<button onclick="addmoreSquares()">Add more Squares</button>
+<button onclick="resetGrid()">Reset grid</button>
+<button onclick="clearGrid()">Clear Grid</button>
+</div>
+<div id='container'>
+    
+</div>
+ <script>
+const container = document.getElementById("container");
+     
+function createGrid(rows, cols) {
+  container.style.gridTemplateColumns = `repeat(${cols}, 1fr)`;
+  container.style.gridTemplateRows = `repeat(${rows}, 1fr)`;
+  for (c = 0; c < (rows * cols); c++) {
+    let newDivs = document.createElement("div");
+    newDivs.addEventListener("mousemove", colorChange);
+    container.appendChild(newDivs).className = "grid-object";
+  };
+};
+
+createGrid(16, 16);
+
+function deleteGrid()
+    {
+document.getElementById('container').innerHTML = '';
+    }
+
+function addmoreSquares(){
+deleteGrid();
+var userInput = prompt('would you like to add more squares',16);
+createGrid(userInput, userInput);
+};
+function colorChange(e){
+e.target.style.backgroundColor = "black";
+}
+function resetGrid(){
+location.reload();
+};
+function clearGrid(){
+var cssgrid = document.querySelectorAll(".grid-object").forEach((element) =>{
+    element.style.backgroundColor = "transparent"
+});
+};
+  
+    </script>
+    
+</body>
+
+
+</html>
